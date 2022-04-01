@@ -41,7 +41,7 @@ public class PathUtils {
      */
     public static String getFirstOrDefaultPrefixUrl(String... prefixUrl) {
         if (prefixUrl == null || prefixUrl.length == 0) {
-            return "";//GlobalConfig.getImagePrefixUrl();
+//            return GlobalConfig.getImagePrefixUrl();
         }
         return prefixUrl[0];
     }
@@ -115,24 +115,24 @@ public class PathUtils {
         return pathsWithPrefix;
     }
 
-    /**
-     * 巡检图片前缀
-     * 
-     * @param paths
-     * @param prefixUrl
-     * @return
-     */
-    public static String splitAdCheckOneImage(String paths, String... prefixUrl) {
-        String pathsWithPrefix = "";
-        if (StringUtils.isNotBlank(paths)) {
-            String[] pathsArrayWithoutPrefix = paths.split(SEPARATOR_COMMA);
-            if (pathsArrayWithoutPrefix.length > 0) {
+//    /**
+//     * 巡检图片前缀
+//     *
+//     * @param paths
+//     * @param prefixUrl
+//     * @return
+//     */
+//    public static String splitAdCheckOneImage(String paths, String... prefixUrl) {
+//        String pathsWithPrefix = "";
+//        if (StringUtils.isNotBlank(paths)) {
+//            String[] pathsArrayWithoutPrefix = paths.split(SEPARATOR_COMMA);
+//            if (pathsArrayWithoutPrefix.length > 0) {
 //                pathsWithPrefix =
 //                        GlobalConfig.getAdCheckImagePrefixUrl() + pathsArrayWithoutPrefix[0];
-            }
-        }
-        return pathsWithPrefix;
-    }
+//            }
+//        }
+//        return pathsWithPrefix;
+//    }
 
     /**
      * 无前缀的路径集装换成有前缀的路径列表List
@@ -153,25 +153,25 @@ public class PathUtils {
         return Collections.emptyList();
     }
 
-    /**
-     * 巡检图片前缀－－－－的路径集装换成有前缀的路径列表List
-     * 
-     * @param pathsWithoutPrefix
-     * @return
-     */
-    public static List<String> pathsTransformAdCheckToList(String pathsWithoutPrefix,
-            String... prefixUrl) {
-        if (StringUtils.isNotBlank(pathsWithoutPrefix)) {
-            List<String> pathsListWithPrefix = new ArrayList<String>();
-            String[] pathWithoutPrefixArray = pathsWithoutPrefix.split(SEPARATOR_COMMA);
-            for (int i = 0; i < pathWithoutPrefixArray.length; i++) {
+//    /**
+//     * 巡检图片前缀－－－－的路径集装换成有前缀的路径列表List
+//     *
+//     * @param pathsWithoutPrefix
+//     * @return
+//     */
+//    public static List<String> pathsTransformAdCheckToList(String pathsWithoutPrefix,
+//            String... prefixUrl) {
+//        if (StringUtils.isNotBlank(pathsWithoutPrefix)) {
+//            List<String> pathsListWithPrefix = new ArrayList<String>();
+//            String[] pathWithoutPrefixArray = pathsWithoutPrefix.split(SEPARATOR_COMMA);
+//            for (int i = 0; i < pathWithoutPrefixArray.length; i++) {
 //                pathsListWithPrefix.add(addAdCheckPathPrefixUrl(pathWithoutPrefixArray[i],
 //                        GlobalConfig.getAdCheckImagePrefixUrl()));
-            }
-            return pathsListWithPrefix;
-        }
-        return Collections.emptyList();
-    }
+//            }
+//            return pathsListWithPrefix;
+//        }
+//        return Collections.emptyList();
+//    }
 
     /**
      * String数组转换为List
@@ -294,25 +294,25 @@ public class PathUtils {
         return pathImagesListString.toString();
     }
 
-    /**
-     * 统一加上图片前缀
-     * 
-     * @param pathsWithoutPrefix
-     * @param prefixUrl
-     * @return
-     */
-    public static List<String> pathListStringAddPathPrefixUrl(String pathsWithoutPrefix,
-            String... prefixUrl) {
-        if (StringUtils.isNotBlank(pathsWithoutPrefix)) {
-            List<String> pathsListWithPrefix = new ArrayList<String>();
-            String[] pathWithoutPrefixArray = pathsWithoutPrefix.split(SEPARATOR_SEMICOLON);
-            for (int i = 0; i < pathWithoutPrefixArray.length; i++) {
+//    /**
+//     * 统一加上图片前缀
+//     *
+//     * @param pathsWithoutPrefix
+//     * @param prefixUrl
+//     * @return
+//     */
+//    public static List<String> pathListStringAddPathPrefixUrl(String pathsWithoutPrefix,
+//            String... prefixUrl) {
+//        if (StringUtils.isNotBlank(pathsWithoutPrefix)) {
+//            List<String> pathsListWithPrefix = new ArrayList<String>();
+//            String[] pathWithoutPrefixArray = pathsWithoutPrefix.split(SEPARATOR_SEMICOLON);
+//            for (int i = 0; i < pathWithoutPrefixArray.length; i++) {
 //                pathsListWithPrefix.add(addAdCheckPathPrefixUrl(pathWithoutPrefixArray[i],
 //                        GlobalConfig.getImagePrefixUrl()));
-            }
-            return pathsListWithPrefix;
-        }
-        return Collections.emptyList();
-    }
+//            }
+//            return pathsListWithPrefix;
+//        }
+//        return Collections.emptyList();
+//    }
 
 }

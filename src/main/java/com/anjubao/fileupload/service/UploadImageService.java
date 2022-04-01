@@ -86,7 +86,7 @@ public class UploadImageService {
 //				throw new CustomException(ErrorNum.PARAMS_ERROR.getIndex(), "路径异常");
 			}// 保存原图
 			String imagePath = relativeFilePath + originalPath;
-			vo.setImagePath(PathUtils.splitOneImage(imagePath));
+			vo.setImagePath(imagePrefixUrl+imagePath);
 			vo.setRealFileName(originalFileName);
 //			vo.setImageId(attachId);
 			log.info("http visit address : " + vo.getImagePath());
