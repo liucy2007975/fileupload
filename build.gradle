@@ -58,8 +58,8 @@ dependencies {
 	compile 'org.projectlombok:lombok:1.18.6'
 	compile spring_boot,logger
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	implementation 'commons-io:commons-io:2.3'
-	implementation 'org.apache.commons:commons-lang3:3.1'
+	compile 'commons-io:commons-io:2.3'
+	compile 'org.apache.commons:commons-lang3:3.1'
 	compile 'org.slf4j:jcl-over-slf4j:1.7.30'
 }
 

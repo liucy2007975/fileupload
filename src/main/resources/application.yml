@@ -11,4 +11,4 @@ image:
  path: //data//app//uploadfiles//
 
 prefix:
- url: http://192.168.46.138/uploadfiles/
+ url: http://192.168.46.138:9004/uploadfiles/

@@ -25,7 +25,7 @@ import java.util.Map.Entry;
 public class UploadImageService {
 
 
-    private static final String IMAGE_DIR = "adApiFile";
+    private static final String IMAGE_DIR = "uploadfiles";
 
     private static final String IMAGE_FILE_NAME = "image";
 
@@ -46,7 +46,7 @@ public class UploadImageService {
 	public UploadImageVo uploadImages(Map<String, MultipartFile> fileMap) {
 		UploadImageVo vo = new UploadImageVo();
 		String relativeFilePath = IMAGE_DIR + File.separator + IMAGE_FILE_NAME + File.separator + DateTools.getYearAndMonthDay();
-		String filePath = uploadImagePath + relativeFilePath;
+		String filePath =  relativeFilePath;
 
 		File dir = new File(filePath);
 		if (!dir.exists()) {
