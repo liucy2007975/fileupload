@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="info">
+    <Properties>
+        <Property name="logPath">./log</Property>
+    </Properties>
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5p %c{1}(%F:%L) - %m%n" />
+        </Console>
+
+        <RollingFile name="oepnApi" fileName="${logPath}/file_upload_api.log"
+                     filePattern="${logPath}/file_upload_api.log.%d{yyyy-MM-dd}.%i.log.gz">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5p %c{1}(%L) - %m%n" />
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="200 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="24" >
+                <Delete basePath="${logPath}/" >
+                    <IfFileName glob="file_upload_api.log.*.log.gz" />
+                    <IfLastModified age="15d" />
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
+
+        <RollingFile name="error" fileName="${logPath}/file_upload_api-error.log"
+                     filePattern="${logPath}/file_upload_api-error.log.%d{yyyy-MM-dd}.%i.log.gz">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5p %c{1}(%L) - %m%n" />
+            <Filters>
+                <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="200 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="24" >
+                <Delete basePath="${logPath}/" >
+                    <IfFileName glob="file_upload_api-error.log.*.log.gz" />
+                    <IfLastModified age="15d" />
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
+
+
+
+        <Async name="asyncFront" bufferSize="512">
+            <AppenderRef ref="oepnApi" />
+        </Async>
+
+        <Async name="asyncError" bufferSize="512">
+            <AppenderRef ref="error" />
+        </Async>
+
+
+        <Async bufferSize="512" name="asyncConsole">
+            <AppenderRef ref="console"/>
+        </Async>
+    </Appenders>
+
+    <Loggers>
+
+
+        <Root level="info">
+            <AppenderRef ref="asyncFront" />
+            <AppenderRef ref="asyncError" />
+            <AppenderRef ref="asyncConsole" />
+        </Root>
+    </Loggers>
+</Configuration>

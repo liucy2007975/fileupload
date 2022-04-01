@@ -1,0 +1,14 @@
+server:
+ port: 9400
+ servlet:
+   context-path: /adApi
+
+multipart:
+ maxFileSize: 1024Mb
+ maxRequestSize: 1024Mb
+
+image:
+ path: //home//anjubao//anjubao_service//server//images-tomcat//webapps//uploadfiles//
+
+prefix:
+ url: http://192.168.200.73:9004/uploadfiles/
