@@ -3,9 +3,11 @@ server:
  servlet:
    context-path: /adApi
 
-multipart:
- maxFileSize: 1024Mb
- maxRequestSize: 1024Mb
+spring:
+ servlet:
+   multipart:
+    maxFileSize: 100MB
+    maxRequestSize: 100MB
 
 image:
  path: //data//app//uploadfiles//
